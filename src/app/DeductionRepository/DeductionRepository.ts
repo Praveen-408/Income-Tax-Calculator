@@ -1,4 +1,4 @@
-import { TaxSection } from '../Models/TaxSection';
+import { TaxSection, TaxSection24 } from '../Models/TaxSection';
 import { Deduction, Deduction80CCD1, Deduction80CCD2 } from '../Models/Deduction';
 
 export class DeductionRepository
@@ -95,8 +95,8 @@ export class DeductionRepository
         return section80U;
     }
 
-    getSection24() : TaxSection {
-        var section24 : TaxSection = new TaxSection("24", 150000);
+    getSection24() : TaxSection24 {
+        var section24 : TaxSection24 = new TaxSection24("24", 150000,Number.MAX_VALUE);
         return section24;
     }
 

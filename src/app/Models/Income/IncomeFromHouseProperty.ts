@@ -1,4 +1,4 @@
-import { TaxSection } from '../TaxSection';
+import { TaxSection24 } from '../TaxSection';
 import { IncomeType } from './IncomeType';
 import { DeductionCalculator } from 'src/app/Calculation/DeductionCalculator';
 
@@ -23,7 +23,7 @@ export class IncomeFromHouseProperty extends IncomeType
         this.netAnnualIncomeFromLetOut = this.annaulRentFromLetOut - this.municipalTaxesLetOut - this.unrealizedRentLetOut;
         this.standardDeductionLetOut = Math.round(0.3 * this.netAnnualIncomeFromLetOut);
         this.incomeFromLetOut = this.netAnnualIncomeFromLetOut - this.standardDeductionLetOut - this.interestOnHousingLoanLetOut;
-        this.incomeAtNormalRate = this.getIncomeFromSelfOccupied(assessmentYear) + this.incomeFromLetOut;
+        this.getIncomeAfterApplyingSection24(assessmentYear);
         this.incomeTotal = this.incomeAtSpecialRate + this.incomeAtNormalRate;
     }
 
@@ -32,12 +32,16 @@ export class IncomeFromHouseProperty extends IncomeType
      * @param assessmentYear 
      * Given Assessment Year, Returns the Income from self occupied house by calculating Interest based on Section24.
      */
-    getIncomeFromSelfOccupied(assessmentYear : number) : number {  
-        let taxsection : TaxSection = new DeductionCalculator().getSection24(assessmentYear);  
+    getIncomeAfterApplyingSection24(assessmentYear : number){  
+        let taxsection : TaxSection24 = new DeductionCalculator().getSection24(assessmentYear);  
         if(0 - taxsection.maxLimit > this.incomeFromSelfOccupied)
-          return 0 - taxsection.maxLimit;
+          this.incomeAtNormalRate = 0 - taxsection.maxLimit;
         else
-          return this.incomeFromSelfOccupied;
+          this.incomeAtNormalRate += this.incomeFromSelfOccupied;
+        if(this.incomeAtNormalRate + this.incomeFromLetOut < 0 - taxsection.maxLimitForInterestOnLetOut)
+            this.incomeAtNormalRate = 0 - taxsection.maxLimitForInterestOnLetOut;
+        else
+            this.incomeAtNormalRate += this.incomeFromLetOut;
     }
     
 }

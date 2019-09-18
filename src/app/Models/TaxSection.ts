@@ -87,3 +87,13 @@ export class TaxSection
     } 
 
 }
+
+export class TaxSection24 extends TaxSection
+{
+    maxLimitForInterestOnLetOut : number;
+
+    constructor(name : string, maxLimitForSelfOccupied : number,maxLimitForInterestOnLetOut : number){
+        super(name, maxLimitForSelfOccupied);
+        this.maxLimitForInterestOnLetOut = maxLimitForInterestOnLetOut;
+    }
+}

@@ -11,7 +11,7 @@ import { DeductionRepository20172018 } from '../DeductionRepository/DeductionRep
 import { DeductionRepository20182019 } from '../DeductionRepository/DeductionRepository20182019';
 import { DeductionRepository20192020 } from '../DeductionRepository/DeductionRepository20192020';
 import { DeductionRepository20202021 } from '../DeductionRepository/DeductionRepository20202021';
-import { TaxSection } from '../Models/TaxSection';
+import { TaxSection, TaxSection24 } from '../Models/TaxSection';
 
 export class DeductionCalculator
 {
@@ -103,7 +103,7 @@ export class DeductionCalculator
      * @param assessmentYear 
      * Given Assessment Year, Returns TaxSection24
      */
-    getSection24(assessmentYear : number) : TaxSection {
+    getSection24(assessmentYear : number) : TaxSection24 {
         this.getDeductionRepository(assessmentYear);
         return this.deductionRepository.getSection24();
     }

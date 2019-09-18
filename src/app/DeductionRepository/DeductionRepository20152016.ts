@@ -1,5 +1,5 @@
 import { DeductionRepository20142015 } from './DeductionRepository20142015';
-import { TaxSection } from '../Models/TaxSection';
+import { TaxSection, TaxSection24 } from '../Models/TaxSection';
 
 export class DeductionRepository20152016 extends DeductionRepository20142015
 {
@@ -14,8 +14,8 @@ export class DeductionRepository20152016 extends DeductionRepository20142015
         return section80C;           
     }
 
-    getSection24() : TaxSection {
-        var section24 : TaxSection = super.getSection24();
+    getSection24() : TaxSection24 {
+        var section24 : TaxSection24 = super.getSection24();
         section24.maxLimit = 200000;
         return section24;
     }

@@ -1,0 +1,655 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>income-tax-calculator documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">income-tax-calculator documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li>IncomeFromCapitalGains</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/Models/Income/IncomeFromCapitalGains.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="../classes/IncomeType.html" target="_self" >IncomeType</a></code>
+            </p>
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#capitalGains">capitalGains</a>
+                            </li>
+                            <li>
+                                <a href="#longTermCapitalGainsSpecial1">longTermCapitalGainsSpecial1</a>
+                            </li>
+                            <li>
+                                <a href="#longTermCapitalGainsSpecial2">longTermCapitalGainsSpecial2</a>
+                            </li>
+                            <li>
+                                <a href="#shortTermCapitalGainsNormal">shortTermCapitalGainsNormal</a>
+                            </li>
+                            <li>
+                                <a href="#shortTermCapitalGainsSpecial">shortTermCapitalGainsSpecial</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#incomeAtNormalRate">incomeAtNormalRate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#incomeAtSpecialRate">incomeAtSpecialRate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#incomeTotal">incomeTotal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#categorizeCapitalGains">categorizeCapitalGains</a>
+                            </li>
+                            <li>
+                                <a href="#initializeCapitalGains">initializeCapitalGains</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/Models/Income/IncomeFromCapitalGains.ts:12</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="capitalGains"></a>
+                        <span class="name">
+                            <b>
+                            capitalGains</b>
+                            <a href="#capitalGains"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/CapitalGains.html" target="_self" >Array&lt;CapitalGains&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/Models/Income/IncomeFromCapitalGains.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="longTermCapitalGainsSpecial1"></a>
+                        <span class="name">
+                            <b>
+                            longTermCapitalGainsSpecial1</b>
+                            <a href="#longTermCapitalGainsSpecial1"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/Models/Income/IncomeFromCapitalGains.ts:9</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="longTermCapitalGainsSpecial2"></a>
+                        <span class="name">
+                            <b>
+                            longTermCapitalGainsSpecial2</b>
+                            <a href="#longTermCapitalGainsSpecial2"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/Models/Income/IncomeFromCapitalGains.ts:10</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="shortTermCapitalGainsNormal"></a>
+                        <span class="name">
+                            <b>
+                            shortTermCapitalGainsNormal</b>
+                            <a href="#shortTermCapitalGainsNormal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/Models/Income/IncomeFromCapitalGains.ts:7</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="shortTermCapitalGainsSpecial"></a>
+                        <span class="name">
+                            <b>
+                            shortTermCapitalGainsSpecial</b>
+                            <a href="#shortTermCapitalGainsSpecial"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/Models/Income/IncomeFromCapitalGains.ts:8</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="incomeAtNormalRate"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            incomeAtNormalRate</b>
+                            <a href="#incomeAtNormalRate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/IncomeType.html" target="_self" >IncomeType</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../classes/IncomeType.html#source" target="_self" >IncomeType:4</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="incomeAtSpecialRate"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            incomeAtSpecialRate</b>
+                            <a href="#incomeAtSpecialRate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/IncomeType.html" target="_self" >IncomeType</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../classes/IncomeType.html#source" target="_self" >IncomeType:3</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="incomeTotal"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            incomeTotal</b>
+                            <a href="#incomeTotal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/IncomeType.html" target="_self" >IncomeType</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../classes/IncomeType.html#source" target="_self" >IncomeType:5</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categorizeCapitalGains"></a>
+                    <span class="name">
+                        <b>
+                            categorizeCapitalGains
+                        </b>
+                        <a href="#categorizeCapitalGains"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>categorizeCapitalGains(incomeTaxCalculator: <a href="https://angular.io/api/forms/FormGroup" target="_blank">FormGroup</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/Models/Income/IncomeFromCapitalGains.ts:32</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>incomeTaxCalculator</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeCapitalGains"></a>
+                    <span class="name">
+                        <b>
+                            initializeCapitalGains
+                        </b>
+                        <a href="#initializeCapitalGains"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeCapitalGains()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/Models/Income/IncomeFromCapitalGains.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CapitalGains } from &#x27;../CapitalGains&#x27;;
+import { FormGroup} from &#x27;@angular/forms&#x27;;
+import { IncomeType } from &#x27;./IncomeType&#x27;;
+
+export class IncomeFromCapitalGains extends IncomeType
+{
+    shortTermCapitalGainsNormal : number;
+    shortTermCapitalGainsSpecial : number;
+    longTermCapitalGainsSpecial1 : number;
+    longTermCapitalGainsSpecial2 : number;
+
+    capitalGains : Array&lt;CapitalGains&gt; &#x3D; [];
+
+    constructor(){
+        super();
+        this.initializeCapitalGains();
+        this.shortTermCapitalGainsNormal &#x3D; 0;
+        this.shortTermCapitalGainsSpecial &#x3D; 0;
+        this.longTermCapitalGainsSpecial1 &#x3D; 0;
+        this.longTermCapitalGainsSpecial2 &#x3D; 0;
+    }
+
+    initializeCapitalGains(){
+        this.capitalGains.push(
+            new CapitalGains(&quot;ShortTermNormal&quot;, &quot;normal&quot;, 0),
+            new CapitalGains(&quot;ShortTermSpecial&quot;, &quot;special&quot;, 15),
+            new CapitalGains(&quot;LongTermSpecial1&quot;, &quot;special&quot;, 20),
+            new CapitalGains(&quot;LongTermSpecial2&quot;, &quot;special&quot;, 10)
+        );
+    }
+
+    categorizeCapitalGains(incomeTaxCalculator : FormGroup) : number {
+        this.capitalGains.forEach(capitalGain &#x3D;&gt; {
+            if(capitalGain.title &#x3D;&#x3D; &quot;ShortTermNormal&quot;)
+                this.shortTermCapitalGainsNormal &#x3D; capitalGain.calculateTotalGain((incomeTaxCalculator.get(&#x27;income&#x27;).get(&#x27;incomeCapitalGains&#x27;).get(&#x27;shortTermNormal&#x27;).value));
+            else if(capitalGain.title &#x3D;&#x3D; &quot;ShortTermSpecial&quot;)
+                this.shortTermCapitalGainsSpecial &#x3D; capitalGain.calculateTotalGain(incomeTaxCalculator.get(&#x27;income&#x27;).get(&#x27;incomeCapitalGains&#x27;).get(&#x27;shortTermSpecial&#x27;).value);
+            else if(capitalGain.title &#x3D;&#x3D; &quot;LongTermSpecial1&quot;)
+                this.longTermCapitalGainsSpecial1 &#x3D; capitalGain.calculateTotalGain(incomeTaxCalculator.get(&#x27;income&#x27;).get(&#x27;incomeCapitalGains&#x27;).get(&#x27;longTermSpecial1&#x27;).value);
+            else if(capitalGain.title &#x3D;&#x3D; &quot;LongTermSpecial2&quot;)
+                this.longTermCapitalGainsSpecial2 &#x3D; capitalGain.calculateTotalGain(incomeTaxCalculator.get(&#x27;income&#x27;).get(&#x27;incomeCapitalGains&#x27;).get(&#x27;longTermSpecial2&#x27;).value);
+        });
+
+        incomeTaxCalculator.get(&#x27;income&#x27;).get(&#x27;incomeCapitalGains&#x27;).patchValue({
+            shortTermNormalTotal : this.shortTermCapitalGainsNormal,
+            shortTermSpecialTotal : this.shortTermCapitalGainsSpecial,
+            longTermSpecial1Total : this.longTermCapitalGainsSpecial1,
+            longTermSpecial2Total : this.longTermCapitalGainsSpecial2
+        });
+
+        this.incomeAtNormalRate &#x3D; +this.shortTermCapitalGainsNormal;
+        this.incomeAtSpecialRate &#x3D; +this.shortTermCapitalGainsSpecial + +this.longTermCapitalGainsSpecial1 + +this.longTermCapitalGainsSpecial2;
+        this.incomeTotal &#x3D; this.incomeAtNormalRate + this.incomeAtSpecialRate;
+        return this.incomeTotal;
+    }
+    
+}</code></pre>
+    </div>
+</div>
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'IncomeFromCapitalGains.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

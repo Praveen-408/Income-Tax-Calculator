@@ -1,0 +1,948 @@
+<div class="container-fluid p-4">
+    <div class="col-sm-12">
+        <div>
+            <form [formGroup]="incomeTaxCalculator" (change)= "onValueChange()">
+
+                <div class="form-group row font p-2 even-bg m-0 border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Assessment Year</label>
+                    <div class="col-sm-3 col-xs-12">
+                        <select class="form-control form-control-sm" formControlName="assessmentYear">
+                            <option [ngValue]="">Select</option>
+                            <option *ngFor="let AY of assessmentYears" [ngValue]="AY.yearid">{{AY.year}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row font p-2 m-0 border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Tax Payer</label>
+                    <div class="col-sm-3 col-xs-12" >
+                        <select class="form-control form-control-sm" formControlName="taxPayer" >
+                            <option>Individual</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group row font p-2 even-bg m-0 border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Male / Female / Senior Citizen</label>
+                    <div class="col-sm-3 col-xs-12">
+                        <select class="form-control form-control-sm" formControlName="category">
+                            <option [ngValue]="">Select</option>
+                            <option *ngFor="let categ of categoryValues; let last = last;" [ngValue]="categ">{{categ}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row font p-2 m-0 border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Residential Status</label>
+                    <div class="col-sm-3 col-xs-12">
+                        <select class="form-control form-control-sm" formControlName="resdentialStatus">
+                            <option>Resident</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div formGroupName ="income">
+
+                    <div class="form-group row font p-2 even-bg m-0 border">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Income from Salary
+                            <label *ngIf ="ay==2020" class="myauto">(Income from salary after standard deduction of Rs.50000)</label>
+                            <label *ngIf = "ay==2019" class="myauto">(Income from salary after standard deduction of Rs.40000)</label>
+                        </label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="incomeFromSalary">
+                        </div>
+                    </div>
+
+                    <div class="form-group row font p-2 m-0 border">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Income From House Property
+                            <span *ngIf="!showHousePropertyDetails" class="seedetails-btn" (click)="showHousePropertyDetails=!showHousePropertyDetails">Show Details</span>
+                            <span *ngIf="showHousePropertyDetails" class="seedetails-btn" (click)="showHousePropertyDetails=!showHousePropertyDetails">Hide Details</span>
+                        </label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="incomeFromHouseProperty"  >
+                        </div>
+                    </div>  
+                    
+                    <div *ngIf="showHousePropertyDetails" class="seedetails border p-2" formGroupName="incomeHouseProperty" (change)="incomeFromHouseProperty()" >
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-12 col-xs-12 control-label my-auto">
+                                a. Interest Paid/Payable on Housing Loan for Current Financial Year
+                            </label>
+                        </div>
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-12 col-xs-12 control-label my-auto">
+                                Interest Paid/Payable on Housing Loan
+                            </label>
+                        </div>
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-9 col-xs-12 control-label my-auto">1. Interest on Housing Loan</label>
+                            <div class="col-sm-3 col-xs-12">
+                                <input type="number" class="form-control form-control-sm" formControlName="interestOnHousingLoanSelfOccupied" >
+                            </div>
+                        </div>
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-9 col-xs-12 control-label my-auto">Income from Self-occupied House Property</label>
+                            <div class="col-sm-3 col-xs-12">
+                                <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="incomeFromSelfOccupied">
+                            </div>
+                        </div>
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-12 col-xs-12 control-label my-auto">
+                                b. Income from Let-out Property
+                            </label>
+                        </div>
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-9 col-xs-12 control-label my-auto">1. Annual Letable Value/Rent Received or Receivable</label>
+                            <div class="col-sm-3 col-xs-12">
+                                <input type="number" class="form-control form-control-sm" formControlName="annaulRentFromLetOut">
+                            </div>
+                        </div>
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-9 col-xs-12 control-label my-auto">2. Less: Municipal Taxes Paid During the Year</label>
+                            <div class="col-sm-3 col-xs-12">
+                                <input type="number" class="form-control form-control-sm" formControlName="municipalTaxesLetOut">
+                            </div>
+                        </div>
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-9 col-xs-12 control-label my-auto">3. Less:Unrealized Rent</label>
+                            <div class="col-sm-3 col-xs-12">
+                                <input type="number" class="form-control form-control-sm" formControlName="unrealizedRentLetOut">
+                            </div>
+                        </div>
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-9 col-xs-12 control-label my-auto">4. Net Annual Value (1-(2+3))</label>
+                            <div class="col-sm-3 col-xs-12">
+                                <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="netAnnualIncomeFromLetOut" >
+                            </div>
+                        </div>
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-12 col-xs-12 control-label my-auto">
+                                Less: Deductions from Net Annual Value
+                            </label>
+                        </div>
+        
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-9 col-xs-12 control-label my-auto">i. Standard Deduction @ 30% of Net Annual Value</label>
+                            <div class="col-sm-3 col-xs-12">
+                                <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="standardDeductionLetOut">
+                            </div>
+                        </div>
+        
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-9 col-xs-12 control-label my-auto">ii. Interest on Housing Loan</label>
+                            <div class="col-sm-3 col-xs-12">
+                                <input type="number" class="form-control form-control-sm" formControlName="interestOnHousingLoanLetOut">
+                            </div>
+                        </div>
+        
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-9 col-xs-12 control-label my-auto">Income from Let-out House Property</label>
+                            <div class="col-sm-3 col-xs-12">
+                                <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="incomeFromLetOut">
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-group row font p-2 m-0 even-bg border">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Capital Gains
+                            <span *ngIf="!showCapitalGainsDetails" class="seedetails-btn" (click)="showCapitalGainsDetails=!showCapitalGainsDetails">Show Details</span>
+                            <span *ngIf="showCapitalGainsDetails" class="seedetails-btn" (click)="showCapitalGainsDetails=!showCapitalGainsDetails">Hide Details</span>
+                        </label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="incomeFromCapitalGains">
+                        </div>
+                    </div>
+                    
+                    <div *ngIf="showCapitalGainsDetails" class="seedetails border p-2" formGroupName="incomeCapitalGains">
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-12 col-xs-12 control-label">
+                                    Short Term Capital GainS (Other than covered under section 111A)
+                            </label>
+                            <div class="col-sm-12 col-xs-12">
+                                <table class="font-table w-75 text-center">
+                                    <tr *ngIf = "capitalGainsFlag == true">
+                                        <td>
+                                            <span>From 01/04/{{assessmentYear-1}} to 15/06/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/06/{{assessmentYear-1}} to 15/09/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/09/{{assessmentYear-1}} to 15/12/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/12/{{assessmentYear-1}} to 15/03/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/03/{{assessmentYear}} to 31/03/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <strong>Total</strong>
+                                        </td>
+                                    </tr>
+                                    <tr *ngIf = "capitalGainsFlag == false">
+                                        <td>
+                                            <span>From 01/04/{{assessmentYear-1}} to 15/09/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/09/{{assessmentYear-1}} to 15/12/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/12/{{assessmentYear-1}} to 15/03/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/03/{{assessmentYear-1}} to 15/31/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <strong>Total</strong>
+                                        </td>
+                                    </tr>
+                                    <tr> 
+                                        <td formArrayName = "shortTermNormal">
+                                            <input [formControlName]="0" type="number">
+                                        </td>
+                                        <td formArrayName = "shortTermNormal">
+                                            <input [formControlName]="1" type="number">
+                                        </td>
+                                        <td formArrayName = "shortTermNormal">
+                                            <input [formControlName]="2" type="number">
+                                        </td>
+                                        <td formArrayName = "shortTermNormal">
+                                            <input [formControlName]="3" type="number">
+                                        </td>
+                                        <td *ngIf ="capitalGainsFlag == true" formArrayName = "shortTermNormal">
+                                            <input [formControlName]="4" type="number">
+                                        </td>
+                                        <td>
+                                            <input formControlName="shortTermNormalTotal" class="dsbldinpt" type="number">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-12 col-xs-12 control-label">
+                                    Short Term Capital GainS (Covered under section 111A)
+                            </label>
+                            <div class="col-sm-12 col-xs-12">
+                                <table class="font-table w-75 text-center">
+                                    <tr *ngIf = "capitalGainsFlag == true">
+                                        <td>
+                                            <span>From 01/04/{{assessmentYear-1}} to 15/06/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/06/{{assessmentYear-1}} to 15/09/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/09/{{assessmentYear-1}} to 15/12/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/12/{{assessmentYear-1}} to 15/03/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/03/{{assessmentYear}} to 31/03/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <strong>Total</strong>
+                                        </td>
+                                    </tr>
+                                    <tr *ngIf = "capitalGainsFlag == false">
+                                        <td>
+                                            <span>From 01/04/{{assessmentYear-1}} to 15/09/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/09/{{assessmentYear-1}} to 15/12/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/12/{{assessmentYear-1}} to 15/03/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/03/{{assessmentYear-1}} to 15/31/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <strong>Total</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td formArrayName = "shortTermSpecial">
+                                            <input [formControlName]="0" type="number">
+                                        </td>
+                                        <td formArrayName = "shortTermSpecial">
+                                            <input [formControlName]="1" type="number">
+                                        </td>
+                                        <td formArrayName = "shortTermSpecial">
+                                            <input [formControlName]="2" type="number">
+                                        </td>
+                                        <td formArrayName = "shortTermSpecial">
+                                            <input [formControlName]="3" type="number">
+                                        </td>
+                                        <td *ngIf = "capitalGainsFlag == true" formArrayName = "shortTermSpecial">
+                                            <input [formControlName]="4" type="number">
+                                        </td>
+                                        <td>
+                                            <input class="dsbldinpt" formControlName="shortTermSpecialTotal" type="number">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-12 col-xs-12 control-label">
+                                Long Term Capital Gains (Charged to tax @ 20%)
+                            </label>
+                            <div class="col-sm-12 col-xs-12">
+                                <table class="font-table w-75 text-center">
+                                    <tr *ngIf = "capitalGainsFlag == true">
+                                        <td>
+                                            <span>From 01/04/{{assessmentYear-1}} to 15/06/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/06/{{assessmentYear-1}} to 15/09/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/09/{{assessmentYear-1}} to 15/12/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/12/{{assessmentYear-1}} to 15/03/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/03/{{assessmentYear}} to 31/03/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <strong>Total</strong>
+                                        </td>
+                                    </tr>
+                                    <tr *ngIf = "capitalGainsFlag == false">
+                                        <td>
+                                            <span>From 01/04/{{assessmentYear-1}} to 15/09/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/09/{{assessmentYear-1}} to 15/12/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/12/{{assessmentYear-1}} to 15/03/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/03/{{assessmentYear-1}} to 15/31/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <strong>Total</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td formArrayName = "longTermSpecial1">
+                                            <input [formControlName]="0" type="number">
+                                        </td>
+                                        <td formArrayName = "longTermSpecial1">
+                                            <input [formControlName]="1" type="number">
+                                        </td>
+                                        <td formArrayName = "longTermSpecial1">
+                                            <input [formControlName]="2" type="number">
+                                        </td>
+                                        <td formArrayName = "longTermSpecial1">
+                                            <input [formControlName]="3" type="number">
+                                        </td>
+                                        <td *ngIf = "capitalGainsFlag == true" formArrayName = "longTermSpecial1">
+                                            <input [formControlName]="4" type="number">
+                                        </td>
+                                        <td>
+                                            <input class="dsbldinpt" formControlName="longTermSpecial1Total" type="number">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-12 col-xs-12 control-label">
+                                Long Term Capital Gains (Charged to tax @ 10%)
+                            </label>
+                            <div class="col-sm-12 col-xs-12">
+                                <table class="font-table w-75 text-center">
+                                    <tr *ngIf = "capitalGainsFlag == true">
+                                        <td>
+                                            <span>From 01/04/{{assessmentYear-1}} to 15/06/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/06/{{assessmentYear-1}} to 15/09/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/09/{{assessmentYear-1}} to 15/12/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/12/{{assessmentYear-1}} to 15/03/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/03/{{assessmentYear}} to 31/03/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <strong>Total</strong>
+                                        </td>
+                                    </tr>
+                                    <tr *ngIf = "capitalGainsFlag == false">
+                                        <td>
+                                            <span>From 01/04/{{assessmentYear-1}} to 15/09/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/09/{{assessmentYear-1}} to 15/12/{{assessmentYear-1}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/12/{{assessmentYear-1}} to 15/03/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <span>From 16/03/{{assessmentYear-1}} to 15/31/{{assessmentYear}}</span>
+                                        </td>
+                                        <td>
+                                            <strong>Total</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td formArrayName = "longTermSpecial2">
+                                            <input [formControlName]="0" type="number">
+                                        </td>
+                                        <td formArrayName = "longTermSpecial2">
+                                            <input [formControlName]="1" type="number">
+                                        </td>
+                                        <td formArrayName = "longTermSpecial2">
+                                            <input [formControlName]="2" type="number">
+                                        </td>
+                                        <td formArrayName = "longTermSpecial2">
+                                            <input [formControlName]="3" type="number">
+                                        </td>
+                                        <td *ngIf = "capitalGainsFlag == true" formArrayName = "longTermSpecial2">
+                                            <input [formControlName]="4" type="number">
+                                        </td>
+                                        <td>
+                                            <input class="dsbldinpt" formControlName="longTermSpecial2Total" type="number">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="form-group row font p-2 m-0 border">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Income From Other Sources
+                            <span *ngIf="!showIncomeFromOtherSourcesDetails" class="seedetails-btn" (click)="showIncomeFromOtherSourcesDetails = !showIncomeFromOtherSourcesDetails">Show Details</span>
+                            <span *ngIf="showIncomeFromOtherSourcesDetails" class="seedetails-btn" (click)="showIncomeFromOtherSourcesDetails = !showIncomeFromOtherSourcesDetails">Hide Details</span>
+                        </label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="incomeFromOtherSources">
+                        </div>
+                    </div>
+                    
+                    <div *ngIf="showIncomeFromOtherSourcesDetails" class="seedetails border p-2" formGroupName="incomeOtherSources" (change)="incomeFromOtherSources()">
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-9 col-xs-12 control-label my-auto">Interest</label>
+                            <div class="col-sm-3 col-xs-12">
+                                <input type="number" class="form-control form-control-sm" formControlName="interest">
+                            </div>
+                        </div>
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-9 col-xs-12 control-label my-auto">Commission/Other Income</label>
+                            <div class="col-sm-3 col-xs-12">
+                                <input type="number" class="form-control form-control-sm" formControlName="commission">
+                            </div>
+                        </div>
+
+                        <div class="form-group row font p-2 m-0">
+                            <label class="col-sm-9 col-xs-12 control-label my-auto">Winnings from Lottery, Crossword Puzzles, etc.</label>
+                            <div class="col-sm-3 col-xs-12">
+                                <input type="number" class="form-control form-control-sm" formControlName="winningsFromLottery">
+                            </div>
+                        </div>
+                            
+                    </div>
+
+                    <div class="form-group row font p-2 even-bg m-0 border">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Profits and Gains of Business or Profession (enter profit only)</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="incomeFromProfits">
+                        </div>
+                    </div>
+
+                    <div class="form-group row font p-2 m-0 border">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Agricultural Income</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="incomeFromAgriculture">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group row font even-bg p-2 m-0 border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Deductions
+                        <span *ngIf="!showDeductionDetails" class="seedetails-btn" (click)="showDeductionDetails = !showDeductionDetails">Show Details</span>
+                        <span *ngIf="showDeductionDetails" class="seedetails-btn" (click)="showDeductionDetails = !showDeductionDetails">Hide Details</span>
+                    </label>
+                    <div class="col-sm-3 col-xs-12">
+                        <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="deductionsTotal">
+                    </div>
+                </div>
+                
+                <div *ngIf="showDeductionDetails" class="seedetails border p-2" formGroupName="deductions">
+
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Life Insurance premium paid</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="lifeInsurance">
+                        </div>
+                    </div>
+        
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Payment for annuity plan</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="annuity">
+                        </div>
+                    </div>
+        
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Contribution toward provident fund / PPF</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="PPF">
+                        </div>
+                    </div> 
+                    
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Investment in NSC (VIII issue) + Interest</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="NSC">
+                        </div>
+                    </div>
+            
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Contribution toward ULIP</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="ULIP">
+                        </div>
+                    </div>
+            
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Contribution toward notified pension fund by MF/UTI</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="MFPensionFund">
+                        </div>
+                    </div> 
+
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Re-payment of housing loan etc</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="houseLoanRePayment">
+                        </div>
+                    </div>
+                
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Tuition fees paid for children</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="childrenFee">
+                        </div>
+                    </div>
+                
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">5 Years fixed deposit with PO or Schedule Bank</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="FD">
+                        </div>
+                    </div> 
+
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Contribution toward NPF</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="NPF">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Employee's / Self-employed contribution toward NPS (up to 20%) (u/s 80CCD)</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="NPS">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Additional contribution towards NPS [u/s 80CCD(1B)]</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="additionalNPS">
+                        </div>
+                    </div> 
+                    
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Employer's contribution toward NPS (up to 20%) (u/s 80CCD)</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="employerNPS">
+                        </div>
+                    </div> 
+                        
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Long-term infrastructure bonds (u/s 80CCF)</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="longTermInfBonds">
+                        </div>
+                    </div>
+                
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Investment under equity saving scheme (u/s 80CCG)</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="equity">
+                        </div>
+                    </div>
+                
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Deposit with Sukanya Samridhi Accounts</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="sukanyaSamridhi">
+                        </div>
+                    </div> 
+        
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Any other deductable (u/s 80C)</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="other80C">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Total</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="total80C">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Medi-claim premium (u/s 80D)</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="medicalClaim80D">
+                        </div>
+                    </div> 
+
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Interest payable on loan for residentials house property (u/s 80EEA )</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="interestOnHouseLoan">
+                        </div>
+                    </div> 
+
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Interest payable on loan for purchase of electric vehicles(u/s 80EEB )</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="interestOnElectricVehicle">
+                        </div>
+                    </div> 
+    
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Actual payment towards medical treatment (u/s 80DDB )</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="medicalPayment80DDB">
+                        </div>
+                    </div>
+                        
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Donations (u/s 80G)</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="donations80G">
+                        </div>
+                    </div>
+                        
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Deduction for maintenance / medical treatment of dependent (u/s 80DD)</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="medicalDependent80DD">
+                        </div>
+                    </div>
+
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-12 col-xs-12 control-label my-auto">
+                            <input type="checkbox" name="80DD" formControlName="normal80DD">
+                            Tick if 80DD is claimed
+                        </label>
+                    </div>
+
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-12 col-xs-12 control-label my-auto">
+                            <input type="checkbox" name="80DD" formControlName="severe80DD">
+                            Tick if severe disability
+                        </label>
+                    </div>
+
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Interest on loan for higher education (u/s 80E)</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="higherEducation80E">
+                        </div>
+                    </div>
+                        
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Interest on loan taken for Residential House (u/s 80EE)</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="loanResidentialHouse80EE">
+                        </div>
+                    </div> 
+        
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Deduction in case of a person with disability (u/s 80U)</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="disability80U">
+                        </div>
+                    </div>
+
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-12 col-xs-12 control-label my-auto">
+                            <input type="checkbox" name="80U" formControlName="normal80U">
+                            Tick if 80U is claimed
+                        </label>
+                    </div>
+    
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-12 col-xs-12 control-label my-auto">
+                            <input type="checkbox" name="80U" formControlName="severe80U">
+                            Tick if severe disability
+                        </label>
+                    </div>
+                            
+                    <div *ngIf ="deduction80TTBFlag == false" class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Interest on deposits in saving account (u/s 80TTA)</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="interestOnDeposits80TTA">
+                        </div>
+                    </div>
+
+                    <div *ngIf ="deduction80TTBFlag == true" class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Interest on deposits(u/s 80TTB)</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="interestOnDeposits80TTB">
+                        </div>
+                    </div>
+                            
+                    <div class="form-group row font p-2 m-0">
+                        <label class="col-sm-9 col-xs-12 control-label my-auto">Any other deductions</label>
+                        <div class="col-sm-3 col-xs-12">
+                            <input type="number" class="form-control form-control-sm" formControlName="otherDeductions">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group row font p-2 m-0 border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Net Taxable Income</label>
+                    <div class="col-sm-3 col-xs-12">
+                       <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="netTaxableIncome">
+                    </div>
+                </div>
+
+                <div class="form-group row font p-2 m-0 even-bg border">
+                    <label class="col-sm-3 col-xs-12 control-label my-auto">
+                        Income Liable to Tax at Normal Rate ---
+                    </label>
+                    <div class="col-sm-1 col-xs-12">
+                       <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="normalTaxableIncome">
+                    </div>
+                    <div class="col-sm-2 col-xs-12">
+                        <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="normalTax">
+                    </div>
+                </div>
+
+                <div formGroupName ="taxSpecailRate">
+
+                    <div class="form-group row font p-2 m-0 border">
+                        <label class="col-sm-3 col-xs-12 control-label my-auto">
+                            Short Term Capital Gains (Covered u/s 111A) 15%
+                        </label>
+                        <div class="col-sm-1 col-xs-12">
+                        <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="shortTermCapitalGainsSpecialTotal">
+                        </div>
+                        <div class="col-sm-2 col-xs-12">
+                            <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="taxShortTermCapitalGainsSpecial">
+                        </div>
+                    </div>
+
+                    <div class="form-group row font p-2 m-0 even-bg border">
+                        <label class="col-sm-3 col-xs-12 control-label my-auto">
+                            Long Term Capital Gains (Charged to tax @ 20%) 20%
+                        </label>
+                        <div class="col-sm-1 col-xs-12">
+                        <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="longTermCapitalGainsSpecial1Total">
+                        </div>
+                        <div class="col-sm-2 col-xs-12">
+                            <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="taxLongTermCapitalGainsSpecial1">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row font p-2 m-0 border">
+                        <label class="col-sm-3 col-xs-12 control-label my-auto">
+                            Long Term Capital Gains (Charged to tax @ 10%) 10%
+                        </label>
+                        <div class="col-sm-1 col-xs-12">
+                        <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="longTermCapitalGainsSpecial2Total">
+                        </div>
+                        <div class="col-sm-2 col-xs-12">
+                            <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="taxLongTermCapitalGainsSpecial2">
+                        </div>
+                    </div>
+
+                    <div class="form-group row font p-2 m-0 even-bg border">
+                        <label class="col-sm-3 col-xs-12 control-label my-auto">
+                            Winnings from Lottery, Crossword Puzzles, etc) 30%
+                        </label>
+                        <div class="col-sm-1 col-xs-12">
+                            <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="winningsFromLotteryTotal">
+                        </div>
+                        <div class="col-sm-2 col-xs-12">
+                            <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="taxWinningsFromLottery">
+                        </div>
+                    </div>
+                
+                </div>
+
+                <div class="form-group row font p-2 m-0 border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Income Tax after relief u/s 87A</label>
+                    <div class="col-sm-3 col-xs-12">
+                       <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="taxAfterRebate">
+                    </div>
+                </div>
+
+                <div class="form-group row font p-2 m-0 even-bg border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Surcharge</label>
+                    <div class="col-sm-3 col-xs-12">
+                       <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="surCharge">
+                    </div>
+                </div>
+
+                <div class="form-group row font p-2 m-0 border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Health and Education Cess</label>
+                    <div class="col-sm-3 col-xs-12">
+                       <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="educationCESS">
+                    </div>
+                </div>
+
+                <div class="form-group row font p-2 m-0 even-bg border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Secondary and higher education cess</label>
+                    <div class="col-sm-3 col-xs-12">
+                       <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="secondaryCESS">
+                    </div>
+                </div>
+
+                <div class="form-group row font p-2 m-0 border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Total Tax Liability</label>
+                    <div class="col-sm-3 col-xs-12">
+                       <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="totalTax">
+                    </div>
+                </div>
+
+                <div class="form-group row font p-2 m-0 even-bg border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Due date of submission of return</label>
+                    <div class="col-sm-3 col-xs-12">
+                       <input type="date" [class.is-invalid]="incomeTaxCalculator.get('returnDueDate').invalid && incomeTaxCalculator.get('returnDueDate').touched" class="form-control form-control-sm" formControlName="returnDueDate">
+                    </div>
+                </div>
+
+                <div class="form-group row font p-2 m-0 border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Actual date of submission of return/date of completion of assessment</label>
+                    <div class="col-sm-3 col-xs-12">
+                       <input type="date" [class.is-invalid]="incomeTaxCalculator.get('returnCompletionDate').invalid && incomeTaxCalculator.get('returnCompletionDate').touched" class="form-control form-control-sm" formControlName="returnCompletionDate">
+                    </div>
+                </div>
+
+                <div class="form-group row font p-2 m-0 even-bg border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Relief other than relief u/s 87A</label>
+                    <div class="col-sm-3 col-xs-12">
+                       <input type="number" class="form-control form-control-sm" formControlName="relief">
+                    </div>
+                </div>
+
+                <div class="form-group row font p-2 m-0 border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">TDS/TCS/MAT (AMT) Credit Utilized</label>
+                    <div class="col-sm-3 col-xs-12">
+                       <input type="number" class="form-control form-control-sm" formControlName="TDS">
+                    </div>
+                </div>
+
+                <div class="form-group row font p-2 m-0 even-bg border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Detail of tax paid</label>
+                </div>
+
+                <div class="form-group row font p-2 m-0 border">
+                    <label class="col-sm-12 control-label my-auto pb-2 pt-2">
+                        <table class="w-100 taxDetailsHeading">
+                            <tr class ="row">
+                                <th class="col-5 border border-dark" >Date</th>
+                                <th class="col-5 border border-dark" >Amount</th>
+                                <th class="col-2 border border-dark" >aaa</th>
+                            </tr>
+                            <div formArrayName = "taxPaid" *ngFor="let taxPaid of incomeTaxCalculator.get('taxPaid').controls; let i = index">
+                                <div [formGroupName] = "i">
+                                    <tr class ="row">
+                                        <td class="col-5 border" >
+                                            <input formControlName="date" type="date" class="mt-2 mb-2 mr-2 w-100">
+                                        </td>
+                                        <td class="col-5 border" >
+                                            <input formControlName="amount" type="number" class="mt-2 mb-2 mr-2 w-100 ">
+                                        </td>
+                                        <td class="col-2 border" >
+                                            <img src="./assets/delete.jpg" class="mt-1 ml-5 cursorimg" width="20%" height="70%" (click)="deleteTaxPaid(i)">
+                                        </td>
+                                    </tr>
+                                </div>
+                            </div>
+                        </table>
+                    </label>   
+                </div>
+
+                <div class="form-group row p-2 m-0 even-bg border">
+                    <label class="col-sm-12 col-xs-12 control-label my-auto">
+                        <button class="btn btn-outline-dark" (click)="addNewTaxPaidDetails()">Add Row</button>
+                    </label>
+                </div>
+
+                <div class="form-group row font p-2 m-0 border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Amount of interest u/s 234A</label>
+                    <div class="col-sm-3 col-xs-12">
+                        <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="interest234A">
+                    </div>
+                </div>
+
+                <div class="form-group row font p-2 m-0 even-bg border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Amount of interest u/s 234B</label>
+                    <div class="col-sm-3 col-xs-12">
+                        <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="interest234B">
+                    </div>
+                </div>
+
+                <div class="form-group row font p-2 m-0 border">
+                    <label class="col-sm-9 col-xs-12 control-label my-auto">Amount of interest u/s 234C</label>
+                    <div class="col-sm-3 col-xs-12">
+                        <input type="number" class="form-control form-control-sm dsbldinpt" formControlName="interest234C">
+                    </div>
+                </div>
+
+                <div class="col-sm-12 text-center"> 
+                    <button class="m-4 btn-sm btn-danger" (click)= "calculateInterest()">Calculate</button>
+                    <button class="m-4 btn-sm btn-secondary" (click)="initialiseFormFields()">Reset</button>
+                </div>
+
+                <div>
+                    <small [class.d-none]="calculateFlag != true || incomeTaxCalculator.get('returnDueDate').valid || incomeTaxCalculator.get('returnCompletionDate').valid" class="text-danger"> Due date and Actual Date of submission of return should not be blank.</small>
+                    <small [class.d-none]="calculateFlag != true || incomeTaxCalculator.get('returnDueDate').valid || incomeTaxCalculator.get('returnCompletionDate').invalid" class="text-danger"> Due date for submission of return should not be blank.</small>
+                    <small [class.d-none]="calculateFlag != true || incomeTaxCalculator.get('returnCompletionDate').valid || incomeTaxCalculator.get('returnDueDate').invalid " class="text-danger"> Actual date of submission of return should not be blank.</small>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

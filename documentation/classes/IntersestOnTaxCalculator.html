@@ -1,0 +1,1018 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>income-tax-calculator documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">income-tax-calculator documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li>IntersestOnTaxCalculator</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/Calculation/InterestOnTaxCalculator.ts</code>
+        </p>
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#calculateInterest">calculateInterest</a>
+                            </li>
+                            <li>
+                                <a href="#computeTaxLeftOverMonthly">computeTaxLeftOverMonthly</a>
+                            </li>
+                            <li>
+                                <a href="#initializeTaxLeftOverMonthly">initializeTaxLeftOverMonthly</a>
+                            </li>
+                            <li>
+                                <a href="#interestOnTax234A">interestOnTax234A</a>
+                            </li>
+                            <li>
+                                <a href="#interestOnTax234B">interestOnTax234B</a>
+                            </li>
+                            <li>
+                                <a href="#interestOnTax234C">interestOnTax234C</a>
+                            </li>
+                            <li>
+                                <a href="#parseAllPayments">parseAllPayments</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/Calculation/InterestOnTaxCalculator.ts:6</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculateInterest"></a>
+                    <span class="name">
+                        <b>
+                            calculateInterest
+                        </b>
+                        <a href="#calculateInterest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calculateInterest(incomeTaxCalculator: <a href="https://angular.io/api/forms/FormGroup" target="_blank">FormGroup</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">src/app/Calculation/InterestOnTaxCalculator.ts:82</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>incomeTaxCalculator</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="computeTaxLeftOverMonthly"></a>
+                    <span class="name">
+                        <b>
+                            computeTaxLeftOverMonthly
+                        </b>
+                        <a href="#computeTaxLeftOverMonthly"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>computeTaxLeftOverMonthly(taxLeftOverMonthWise: <a href="../classes/TaxLeftOverMonthly.html">Array<TaxLeftOverMonthly></a>, remainingTax: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, paymentsMonthWise: <a href="../classes/PaymentMonthly.html">Array<PaymentMonthly></a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/app/Calculation/InterestOnTaxCalculator.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>taxLeftOverMonthWise</td>
+                                    <td>
+                                                <code><a href="../classes/TaxLeftOverMonthly.html" target="_self" >Array&lt;TaxLeftOverMonthly&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>remainingTax</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>paymentsMonthWise</td>
+                                    <td>
+                                                <code><a href="../classes/PaymentMonthly.html" target="_self" >Array&lt;PaymentMonthly&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaxLeftOverMonthly.html" target="_self" >Array&lt;TaxLeftOverMonthly&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeTaxLeftOverMonthly"></a>
+                    <span class="name">
+                        <b>
+                            initializeTaxLeftOverMonthly
+                        </b>
+                        <a href="#initializeTaxLeftOverMonthly"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeTaxLeftOverMonthly(actualSubmissionDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, assessmentYear: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/Calculation/InterestOnTaxCalculator.ts:32</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>actualSubmissionDate</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>assessmentYear</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaxLeftOverMonthly.html" target="_self" >Array&lt;TaxLeftOverMonthly&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="interestOnTax234A"></a>
+                    <span class="name">
+                        <b>
+                            interestOnTax234A
+                        </b>
+                        <a href="#interestOnTax234A"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>interestOnTax234A(dueDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, actualSubmissionDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, taxLeftOverMonthWise: <a href="../classes/TaxLeftOverMonthly.html">Array<TaxLeftOverMonthly></a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">src/app/Calculation/InterestOnTaxCalculator.ts:104</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dueDate</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>actualSubmissionDate</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>taxLeftOverMonthWise</td>
+                                    <td>
+                                                <code><a href="../classes/TaxLeftOverMonthly.html" target="_self" >Array&lt;TaxLeftOverMonthly&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="interestOnTax234B"></a>
+                    <span class="name">
+                        <b>
+                            interestOnTax234B
+                        </b>
+                        <a href="#interestOnTax234B"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>interestOnTax234B(actualSubmissionDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, Tax: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, assessmentYear: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, taxLeftOverMonthWise: <a href="../classes/TaxLeftOverMonthly.html">Array<TaxLeftOverMonthly></a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="136"
+                            class="link-to-prism">src/app/Calculation/InterestOnTaxCalculator.ts:136</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>actualSubmissionDate</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>Tax</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>assessmentYear</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>taxLeftOverMonthWise</td>
+                                    <td>
+                                                <code><a href="../classes/TaxLeftOverMonthly.html" target="_self" >Array&lt;TaxLeftOverMonthly&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="interestOnTax234C"></a>
+                    <span class="name">
+                        <b>
+                            interestOnTax234C
+                        </b>
+                        <a href="#interestOnTax234C"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>interestOnTax234C(Tax: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, assessmentYear: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, taxLeftOverMonthWise: <a href="../classes/TaxLeftOverMonthly.html">Array<TaxLeftOverMonthly></a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="170"
+                            class="link-to-prism">src/app/Calculation/InterestOnTaxCalculator.ts:170</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tax</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>assessmentYear</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>taxLeftOverMonthWise</td>
+                                    <td>
+                                                <code><a href="../classes/TaxLeftOverMonthly.html" target="_self" >Array&lt;TaxLeftOverMonthly&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parseAllPayments"></a>
+                    <span class="name">
+                        <b>
+                            parseAllPayments
+                        </b>
+                        <a href="#parseAllPayments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>parseAllPayments(incomeTaxCalculator: <a href="https://angular.io/api/forms/FormGroup" target="_blank">FormGroup</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">src/app/Calculation/InterestOnTaxCalculator.ts:10</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>incomeTaxCalculator</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/PaymentMonthly.html" target="_self" >Array&lt;PaymentMonthly&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PaymentMonthly } from &#x27;../Models/PaymentMonthly&#x27;;
+import { TaxLeftOverMonthly } from &#x27;../Models/TaxLeftOverMonthly&#x27;;
+import { FormGroup, FormArray } from &#x27;@angular/forms&#x27;;
+
+export class IntersestOnTaxCalculator
+{
+  constructor(){
+  }
+
+  parseAllPayments(incomeTaxCalculator : FormGroup) : Array&lt;PaymentMonthly&gt; {
+    let actualSubmissionDate : Date &#x3D; new Date(incomeTaxCalculator.get(&#x27;returnCompletionDate&#x27;).value);
+    let paymentsMonthWise : Array&lt;PaymentMonthly&gt; &#x3D; [];
+    var taxPaid : FormArray &#x3D; incomeTaxCalculator.get(&#x27;taxPaid&#x27;).value as FormArray;
+    for(var index &#x3D; 0; index &lt; taxPaid.length; index++)
+    {
+      var fullDate : Date &#x3D; new Date(taxPaid[index].date);
+      if(fullDate &gt; actualSubmissionDate)
+        fullDate &#x3D; actualSubmissionDate
+      var date : number &#x3D; fullDate.getDate();
+      var month : number &#x3D; fullDate.getMonth() + 1;
+      var year : number &#x3D; fullDate.getFullYear(); 
+      var amount : number &#x3D; taxPaid[index].amount;
+      var paymentMonth : PaymentMonthly &#x3D; paymentsMonthWise.find(monthYear &#x3D;&gt; monthYear.month &#x3D;&#x3D; month &amp;&amp; monthYear.year &#x3D;&#x3D; year);
+      if(paymentMonth &#x3D;&#x3D; undefined)
+        paymentsMonthWise.push(new PaymentMonthly(date, month, year, amount));
+      else if(paymentMonth !&#x3D; undefined)
+        paymentMonth.parsePaymentDate(date, amount);
+    }
+    return paymentsMonthWise;
+  }
+  
+  initializeTaxLeftOverMonthly(actualSubmissionDate : Date,assessmentYear : number) : Array&lt;TaxLeftOverMonthly&gt; {
+    let taxLeftOverMonthWise : Array&lt;TaxLeftOverMonthly&gt; &#x3D; [];
+    var startMonth : number &#x3D; 4;
+    var startYear : number &#x3D; assessmentYear - 1; 
+    var endMonth : number &#x3D; actualSubmissionDate.getMonth() + 1;
+    var endYear : number &#x3D; actualSubmissionDate.getFullYear();
+    for(let year &#x3D; startYear; year &lt;&#x3D; endYear; year++)
+    {
+      let monthstart &#x3D; 1;
+      let monthend &#x3D; 12;
+      if(year &#x3D;&#x3D; startYear)
+        monthstart &#x3D; startMonth;
+      if(year &#x3D;&#x3D; endYear)
+        monthend &#x3D; endMonth;
+      for(let month &#x3D; monthstart; month &lt;&#x3D; monthend; month++)
+      {
+        taxLeftOverMonthWise.push(new TaxLeftOverMonthly(month, year));
+      }
+    }
+    return taxLeftOverMonthWise;
+  }
+  
+  computeTaxLeftOverMonthly(taxLeftOverMonthWise : Array&lt;TaxLeftOverMonthly&gt;, remainingTax : number, paymentsMonthWise : Array&lt;PaymentMonthly&gt;) : Array&lt;TaxLeftOverMonthly&gt; {
+  
+    let currentMonth &#x3D; paymentsMonthWise.find(monthYear &#x3D;&gt; monthYear.month &#x3D;&#x3D; taxLeftOverMonthWise[0].month &amp;&amp; monthYear.year &#x3D;&#x3D; taxLeftOverMonthWise[0].year);
+
+    taxLeftOverMonthWise[0].amountUpto15 &#x3D; remainingTax;
+    if(currentMonth &#x3D;&#x3D; undefined)
+      taxLeftOverMonthWise[0].amountAfter15 &#x3D; taxLeftOverMonthWise[0].amountUpto15;
+    else
+      taxLeftOverMonthWise[0].amountAfter15 &#x3D; taxLeftOverMonthWise[0].amountUpto15 - currentMonth.amountUpto15;
+
+    for(let index &#x3D; 1; index &lt; taxLeftOverMonthWise.length; index++)
+    {
+      let previousMonth &#x3D; paymentsMonthWise.find(monthYear &#x3D;&gt; monthYear.month &#x3D;&#x3D; taxLeftOverMonthWise[index-1].month &amp;&amp; monthYear.year &#x3D;&#x3D; taxLeftOverMonthWise[index-1].year);
+      if(previousMonth &#x3D;&#x3D; undefined)
+        taxLeftOverMonthWise[index].amountUpto15 &#x3D; taxLeftOverMonthWise[index-1].amountAfter15
+      else
+        taxLeftOverMonthWise[index].amountUpto15 &#x3D; taxLeftOverMonthWise[index-1].amountAfter15 - previousMonth.amountAfter15;
+      
+      currentMonth &#x3D; paymentsMonthWise.find(monthYear &#x3D;&gt; monthYear.month &#x3D;&#x3D; taxLeftOverMonthWise[index].month &amp;&amp; monthYear.year &#x3D;&#x3D; taxLeftOverMonthWise[index].year);
+
+      if(currentMonth &#x3D;&#x3D; undefined)
+        taxLeftOverMonthWise[index].amountAfter15 &#x3D; taxLeftOverMonthWise[index].amountUpto15;
+      else
+        taxLeftOverMonthWise[index].amountAfter15 &#x3D; taxLeftOverMonthWise[index].amountUpto15 - currentMonth.amountUpto15;
+    }
+    return taxLeftOverMonthWise;
+  }
+  
+  calculateInterest(incomeTaxCalculator : FormGroup){
+    let assessmentYear : number &#x3D; incomeTaxCalculator.get(&#x27;assessmentYear&#x27;).value &#x3D;&#x3D; &quot;Select&quot; ? 2020 : incomeTaxCalculator.get(&#x27;assessmentYear&#x27;).value
+    let actualSubmissionDate : Date &#x3D; new Date(incomeTaxCalculator.get(&#x27;returnCompletionDate&#x27;).value);
+    let dueDate : Date &#x3D; new Date(incomeTaxCalculator.get(&#x27;returnDueDate&#x27;).value);
+    let remainingTax : number&#x3D; incomeTaxCalculator.get(&#x27;totalTax&#x27;).value - incomeTaxCalculator.get(&#x27;relief&#x27;).value - incomeTaxCalculator.get(&#x27;TDS&#x27;).value;
+    let paymentsMonthWise : Array&lt;PaymentMonthly&gt; &#x3D; this.parseAllPayments(incomeTaxCalculator);
+    let taxLeftOverMonthWise : Array&lt;TaxLeftOverMonthly&gt; &#x3D; this.initializeTaxLeftOverMonthly(actualSubmissionDate, assessmentYear);
+    taxLeftOverMonthWise &#x3D; this.computeTaxLeftOverMonthly(taxLeftOverMonthWise, remainingTax, paymentsMonthWise);
+    let interestSection234A : number &#x3D; this.interestOnTax234A(dueDate, actualSubmissionDate, taxLeftOverMonthWise);
+    let interestSection234B : number &#x3D; 0;
+    let interestSection234C : number &#x3D; 0;
+    if(incomeTaxCalculator.get(&#x27;category&#x27;).value !&#x3D; &quot;Senior Citizen&quot; &amp;&amp; incomeTaxCalculator.get(&#x27;category&#x27;).value !&#x3D; &quot;Super Senior Citizen&quot;){
+        interestSection234B &#x3D; this.interestOnTax234B(actualSubmissionDate, remainingTax, assessmentYear, taxLeftOverMonthWise);
+        interestSection234C &#x3D; this.interestOnTax234C(remainingTax, assessmentYear, taxLeftOverMonthWise);
+    }
+    incomeTaxCalculator.patchValue({
+      interest234A : interestSection234A,
+      interest234B : interestSection234B,
+      interest234C : interestSection234C
+    });
+  }
+    
+  interestOnTax234A(dueDate : Date, actualSubmissionDate : Date, taxLeftOverMonthWise : Array&lt;TaxLeftOverMonthly&gt;) : number {
+    let interest : number &#x3D; 0;
+    if(dueDate &lt; actualSubmissionDate){
+      let nextDate : Date &#x3D;new Date(dueDate.getTime() + 24 * 60 * 60 * 1000);
+      if(nextDate.getMonth() !&#x3D; dueDate.getMonth())
+        dueDate &#x3D; nextDate;
+      
+      var startMonth : number &#x3D; dueDate.getMonth() + 1;
+      var startYear : number &#x3D; dueDate.getFullYear(); 
+      var endMonth : number &#x3D; actualSubmissionDate.getMonth() + 1;
+      var endYear : number &#x3D; actualSubmissionDate.getFullYear()
+      for(let year &#x3D; startYear; year &lt;&#x3D; endYear; year++)
+      {
+        let monthstart : number &#x3D; 1;
+        let monthend : number &#x3D; 12;
+        if(year &#x3D;&#x3D; startYear)
+          monthstart &#x3D; startMonth;
+        if(year &#x3D;&#x3D; endYear)
+          monthend &#x3D; endMonth;
+        for(let month &#x3D; monthstart; month &lt;&#x3D; monthend; month++)
+        {
+          taxLeftOverMonthWise.forEach(monthYear &#x3D;&gt; {
+            if(monthYear.month &#x3D;&#x3D; month &amp;&amp; monthYear.year &#x3D;&#x3D; year){
+              interest +&#x3D; (monthYear.amountUpto15) * 1 / 100;
+            }
+          });
+        }
+      }
+    }
+    return Math.round(Math.max(0, interest));
+  }
+  
+  interestOnTax234B(actualSubmissionDate : Date, Tax : number, assessmentYear : number, taxLeftOverMonthWise : Array&lt;TaxLeftOverMonthly&gt;) : number {
+    let interest : number &#x3D; 0;
+    let taxOn31Mar : number &#x3D; 0;
+    taxLeftOverMonthWise.forEach(monthYear &#x3D;&gt; {
+      if(monthYear.month &#x3D;&#x3D; 3 &amp;&amp; monthYear.year &#x3D;&#x3D; assessmentYear){
+        taxOn31Mar &#x3D; monthYear.amountUpto15;
+      }
+    });
+    if(Tax &gt;&#x3D; 10000 &amp;&amp; taxOn31Mar &gt; (0.1 * Tax)){
+      var startMonth : number &#x3D; 4;
+      var startYear : number &#x3D; assessmentYear; 
+      var endMonth : number &#x3D; actualSubmissionDate.getMonth() + 1;
+      var endYear : number &#x3D; actualSubmissionDate.getFullYear()
+      for(let year &#x3D; startYear; year &lt;&#x3D; endYear; year++)
+      {
+        let monthstart : number &#x3D; 1;
+        let monthend : number &#x3D; 12;
+        if(year &#x3D;&#x3D; startYear)
+          monthstart &#x3D; startMonth;
+        if(year &#x3D;&#x3D; endYear)
+          monthend &#x3D; endMonth;
+        for(let month &#x3D; monthstart; month &lt;&#x3D; monthend; month++)
+        {
+          taxLeftOverMonthWise.forEach(monthYear &#x3D;&gt; {
+            if(monthYear.month &#x3D;&#x3D; month &amp;&amp; monthYear.year &#x3D;&#x3D; year){
+              interest +&#x3D; (monthYear.amountUpto15) * 1 / 100;
+            }
+          });
+        }
+      }
+    }
+    return Math.round(Math.max(0, interest));
+  }
+  
+  interestOnTax234C(Tax : number, assessmentYear : number, taxLeftOverMonthWise : Array&lt;TaxLeftOverMonthly&gt;) : number {
+    let interest : number &#x3D; 0;
+    if(Tax &gt;&#x3D; 10000){
+      let taxOn15Mar : number &#x3D; 0;
+      let taxOn15Jun : number &#x3D; 0;
+      let taxOn15Sep : number &#x3D; 0;
+      let taxOn15Dec : number &#x3D; 0;
+      taxLeftOverMonthWise.forEach(monthYear &#x3D;&gt; {
+        if(monthYear.month &#x3D;&#x3D; 6 &amp;&amp; monthYear.year &#x3D;&#x3D; assessmentYear - 1)
+          taxOn15Jun &#x3D; monthYear.amountAfter15;
+        else if(monthYear.month &#x3D;&#x3D; 9 &amp;&amp; monthYear.year &#x3D;&#x3D; assessmentYear - 1)
+          taxOn15Sep &#x3D; monthYear.amountAfter15;
+        else  if(monthYear.month &#x3D;&#x3D; 12 &amp;&amp; monthYear.year &#x3D;&#x3D; assessmentYear - 1)
+          taxOn15Dec &#x3D; monthYear.amountAfter15;
+        else if(monthYear.month &#x3D;&#x3D; 3 &amp;&amp; monthYear.year &#x3D;&#x3D; assessmentYear)
+          taxOn15Mar &#x3D; monthYear.amountAfter15;
+      });
+      if(taxOn15Jun &gt; (0.85) * Tax)
+        interest +&#x3D; Math.round((taxOn15Jun - (0.85) * Tax) * 1 / 100 * 3);
+      if(taxOn15Sep &gt; (0.55) * Tax)
+        interest +&#x3D; Math.round((taxOn15Sep - (0.55) * Tax) * 1 / 100 * 3);
+      if(taxOn15Dec &gt; (0.25) * Tax)
+        interest +&#x3D; Math.round((taxOn15Dec - (0.25) * Tax) * 1 / 100 * 3);
+      if(taxOn15Mar &gt; 0)
+        interest +&#x3D; Math.round((taxOn15Mar) * 1 / 100);
+    }
+    return Math.round(Math.max(0, interest));
+  }
+
+}</code></pre>
+    </div>
+</div>
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'IntersestOnTaxCalculator.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,36 @@
+.even-bg {
+    background-color  : #e1e1e1;
+}
+
+.seedetails-btn {
+    display  : block;
+    float  : right;
+    border-radius : 4px;
+    padding : 1px 4px;
+    color : #fff;
+    font-weight : normal;
+    background : #333;
+    font-size : 11px;
+    cursor : pointer;
+}
+
+.seedetails {
+    background-color : #b4b4b4;
+}
+
+.dsbldinpt {
+    background : #e0e0e0;
+    color : #333 !important;
+    font-weight : bold !important;
+}
+
+.taxDetailsHeading th {
+    background : #1867a3;
+    color : #fff;
+    height  : 30px;
+}
+
+.cursorimg {
+    cursor : pointer;
+    display : block;
+}

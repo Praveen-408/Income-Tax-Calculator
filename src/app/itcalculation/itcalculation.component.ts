@@ -387,4 +387,8 @@ export class ITCalculationComponent implements OnInit {
     return this.incomeTaxCalculator.get('category').value == "Select" ? "Male" : this.incomeTaxCalculator.get('category').value;
   }
 
+  get taxsPaid(){
+    return this.incomeTaxCalculator.get('taxPaid') as FormArray;
+  }
+
 }
